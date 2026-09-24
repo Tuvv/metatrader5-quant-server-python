@@ -57,6 +57,7 @@ services:
 
   mt5:
     build:
+      context: .
       dockerfile: Dockerfile
     container_name: mt5
     volumes:

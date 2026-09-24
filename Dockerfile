@@ -1,5 +1,5 @@
 # Stage 1: Base image with apt packages
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbullseye-8446af38-ls104 AS base
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbookworm AS base
 
 ENV TITLE=MetaTrader
 ENV WINEARCH=win64
@@ -20,8 +20,8 @@ RUN apt-get install -y \
     python3-pip \
     wget \
     python3-pyxdg \
-    netcat \
-    && pip3 install --upgrade pip
+    netcat-openbsd \
+    && pip3 install --upgrade pip --break-system-packages
 
 # Add WineHQ repository key and APT source
 RUN wget -q https://dl.winehq.org/wine-builds/winehq.key > /dev/null 2>&1\
