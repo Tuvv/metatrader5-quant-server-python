@@ -8,7 +8,7 @@ ENV DISPLAY=:0
 
 # Ensure the directory exists with correct permissions
 RUN mkdir -p /config/.wine && \
-    chown -R abc:abc /config/.wine && \
+    chown -R 1000:1000 /config/.wine && \
     chmod -R 755 /config/.wine
 
 # Update package lists and upgrade packages
@@ -49,7 +49,7 @@ RUN dos2unix /scripts/*.sh && \
 
 COPY /root /
 RUN touch /var/log/mt5_setup.log && \
-    chown abc:abc /var/log/mt5_setup.log && \
+    chown 1000:1000 /var/log/mt5_setup.log && \
     chmod 644 /var/log/mt5_setup.log
 
 VOLUME /config
