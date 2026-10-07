@@ -24,5 +24,5 @@ else
     log_message "INFO" "Mono is already installed."
 fi
 
-# Initialize Wine configuration
-winecfg
+# Do not run winecfg here. This script is called by the VNC desktop autostart
+# on each session, and winecfg can open a configuration dialog on reconnect.

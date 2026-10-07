@@ -4,6 +4,13 @@ source /scripts/02-common.sh
 
 log_message "RUNNING" "04-install-mt5.sh"
 
+# The KasmVNC/Openbox autostart hook runs again for a new desktop session.
+# Avoid starting another MT5 process if the existing session is still alive.
+if pgrep -f '[t]erminal64.exe' > /dev/null 2>&1; then
+    log_message "INFO" "MT5 is already running; skipping another launch."
+    exit 0
+fi
+
 # Check if MetaTrader 5 is installed
 if [ -e "$mt5file" ]; then
     log_message "INFO" "File $mt5file already exists."
