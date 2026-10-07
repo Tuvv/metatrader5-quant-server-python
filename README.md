@@ -76,8 +76,14 @@ This project provides a Docker-based setup to run MetaTrader 5 (MT5) using Wine 
   ```bash
   export HASHED_PASSWORD=$(openssl passwd -apr1 $PASSWORD)
   ```
-   
-3. **Create Docker Network**
+3. **Download MT5 installer**
+  Sometimes mql5 site blocks your mt5 container from download the installer. A work around is to download the installer directly from your localhost and store it in the config volume
+
+  ```bash
+  wget -O config/mt5setup.exe https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
+  ```
+
+4. **Create Docker Network**
 
   ```bash
   docker network create traefik-public

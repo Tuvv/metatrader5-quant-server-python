@@ -18,6 +18,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
     dos2unix \
     python3-pip \
+    curl \
     wget \
     python3-pyxdg \
     netcat-openbsd \
